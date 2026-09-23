@@ -1,6 +1,6 @@
 alert('main.js loaded!');
-// የኒያላ ቢት - ዋና ስክሪፕት
 
+// የኒያላ ቢት - ዋና ስክሪፕት
 // ጨዋታዎችን ማሳየት
 function renderMatches(filter = 'all') {
   const grid = document.getElementById('matchesGrid');
