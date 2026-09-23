@@ -840,16 +840,33 @@ function setupWithdraw() {
   }
 }
 document.addEventListener('DOMContentLoaded', () => {
-  renderMatches();
-  setupFilters();
-  updateBalanceUI();
-  setupModal();
-  setupBetSlip();
-  renderCasino();
-  setupCasinoFilters();
-  setupProfile();
-  loadBetHistory();
-  setupWithdraw();        // ← አዲስ
+  const steps = [
+    ['renderMatches', renderMatches],
+    ['setupFilters', setupFilters],
+    ['updateBalanceUI', updateBalanceUI],
+    ['setupModal', setupModal],
+    ['setupBetSlip', setupBetSlip],
+    ['renderCasino', renderCasino],
+    ['setupCasinoFilters', setupCasinoFilters],
+    ['setupProfile', setupProfile],
+    ['loadBetHistory', loadBetHistory],
+    ['setupWithdraw', setupWithdraw]
+  ];
+
+  let errorMsg = '';
+  steps.forEach(([name, fn]) => {
+    try {
+      fn();
+    } catch (e) {
+      errorMsg += name + ': ' + e.message + '\n';
+    }
+  });
+
+  if (errorMsg) {
+    alert('⚠️ ስህተቶች:\n\n' + errorMsg);
+  } else {
+    alert('✅ ሁሉም በትክክል ተጭኗል!');
+  }
 
   const depositBtn = document.querySelector('.btn-deposit');
   if (depositBtn) {
