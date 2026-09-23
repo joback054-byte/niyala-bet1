@@ -246,44 +246,50 @@ function updateUserUI(user) {
 
 // የሞዳል ክፍሎችን ማዘጋጀት
 function setupModal() {
-  // "ግባ" አዝራር
   const loginBtn = document.querySelector('.btn-login');
+  const registerBtn = document.querySelector('.btn-register');
+  const modalEl = document.getElementById('authModal');
+  const modalClose = document.getElementById('modalClose');
+  const switchLink = document.getElementById('switchLink');
+  const authForm = document.getElementById('authForm');
+
   if (loginBtn) {
     loginBtn.onclick = () => openAuthModal('login');
   }
 
-  // "ተመዝገብ" አዝራር
-  const registerBtn = document.querySelector('.btn-register');
   if (registerBtn) {
     registerBtn.onclick = () => openAuthModal('register');
   }
 
-  // የመዝጊያ አዝራር
-  document.getElementById('modalClose').onclick = closeAuthModal;
+  if (modalClose) {
+    modalClose.onclick = closeAuthModal;
+  }
 
-  // ከውጭ ሲነካ መዝጋት
-  modalEl.addEventListener('click', (e) => {
-    if (e.target === modalEl) closeAuthModal();
-  });
+  if (modalEl) {
+    modalEl.addEventListener('click', (e) => {
+      if (e.target === modalEl) closeAuthModal();
+    });
+  }
 
-  // መቀያየሪያ ሊንክ
-  document.getElementById('switchLink').onclick = (e) => {
-    e.preventDefault();
-    authMode = authMode === 'login' ? 'register' : 'login';
-    updateModalUI();
-  };
+  if (switchLink) {
+    switchLink.onclick = (e) => {
+      e.preventDefault();
+      authMode = authMode === 'login' ? 'register' : 'login';
+      updateModalUI();
+    };
+  }
 
-  // ፎርም ማስገባት
-  document.getElementById('authForm').onsubmit = handleAuthSubmit;
+  if (authForm) {
+    authForm.onsubmit = handleAuthSubmit;
+  }
 
-  // የነበረ ተጠቃሚ ካለ አሳይ
   const stored = localStorage.getItem('niyala_user');
   if (stored) {
     try {
       updateUserUI(JSON.parse(stored));
     } catch (e) {}
   }
- }
+}
 
 // ===== ሁሉንም ማስጀመሪያ =====
 document.addEventListener('DOMContentLoaded', () => {
