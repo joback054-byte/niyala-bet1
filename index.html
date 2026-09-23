@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ኒያላ ቢት - ወደ ድል ተግባ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <span class="logo-text">ኒያላ ቢት</span>
+      </a>
+
+      <nav class="menu">
+        <a href="#" class="active">ስፖርት</a>
+        <a href="#">ካሲኖ</a>
+        <a href="#">ቀጥታ</a>
+        <a href="#">ማስታወቂያ</a>
+      </nav>
+
+      <div class="auth-buttons">
+        <button class="btn-login">ግባ</button>
+        <button class="btn-register">ተመዝገብ</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ጊዜያዊ ይዘት -->
+  <main class="container" style="padding: 40px 20px;">
+    <h1>እንኳን ወደ ኒያላ ቢት በደህና መጡ! 🎯</h1>
+    <!-- SPORTS SECTION -->
+<section class="sports-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>⚽ ቀጥታ የስፖርት ጨዋታዎች</h2>
+      <div class="sport-filters">
+        <button class="filter active" data-sport="all">ሁሉም</button>
+        <button class="filter" data-sport="football">እግር ኳስ</button>
+        <button class="filter" data-sport="basketball">ቅርጫት ኳስ</button>
+        <button class="filter" data-sport="tennis">ቴኒስ</button>
+      </div>
+    </div>
+
+    <div class="matches-grid" id="matchesGrid">
+      <!-- ጨዋታዎች በ JavaScript ይሞላሉ -->
+    </div>
+  </div>
+  <!-- CASINO SECTION -->
+<section class="casino-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>🎰 የካሲኖ ጨዋታዎች</h2>
+      <div class="sport-filters">
+        <button class="filter casino-filter active" data-category="all">ሁሉም</button>
+        <button class="filter casino-filter" data-category="crash">Crash</button>
+        <button class="filter casino-filter" data-category="mines">Mines</button>
+        <button class="filter casino-filter" data-category="dice">Dice</button>
+      </div>
+    </div>
+
+    <div class="casino-grid" id="casinoGrid">
+      <!-- ጨዋታዎች በ JavaScript ይሞላሉ -->
+    </div>
+  </div>
+</section>
+  <!-- BALANCE BAR -->
+<div class="balance-bar">
+  <div class="container balance-content">
+    <div class="balance-item">
+      <span>ቀሪ ሂሳብ</span>
+      <strong id="balanceAmount">0.00 ETB</strong>
+    </div>
+    <div class="balance-item">
+      <span>ያሸነፍከው</span>
+      <strong id="wonAmount">0.00 ETB</strong>
+    </div>
+    <div class="balance-item">
+      <span>ተቀማጭ</span>
+      <strong id="depositAmount">0.00 ETB</strong>
+    </div>
+    <button class="btn-deposit">💰 ተቀማጭ አድርግ</button>
+  </div>
+</div>
+</section>
+    <!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 class="footer-logo">ኒያላ ቢት</h4>
+        <p>ወደ ድል ተግባ! በሺዎች የሚቆጠሩ የስፖርት እና የካሲኖ ጨዋታዎች በአንድ ቦታ።</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>አገልግሎቶች</h4>
+        <ul>
+          <li><a href="#">ስፖርት ቤቲንግ</a></li>
+          <li><a href="#">ካሲኖ</a></li>
+          <li><a href="#">ቀጥታ ካሲኖ</a></li>
+          <li><a href="#">ማስተዋወቂያ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>ድጋፍ</h4>
+        <ul>
+          <li><a href="#">አግኙን</a></li>
+          <li><a href="#">ተደጋጋሚ ጥያቄዎች</a></li>
+          <li><a href="#">24/7 ድጋፍ</a></li>
+          <li><a href="#">ደህንነት</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>ህጋዊ</h4>
+        <ul>
+          <li><a href="#">የአገልግሎት ውል</a></li>
+          <li><a href="#">የግላዊነት ፖሊሲ</a></li>
+          <li><a href="#">ኃላፊነት</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 ኒያላ ቢት. መብቱ በህግ የተጠበቀ ነው።</p>
+      <p class="age-warning">🔞 ለ18 ዓመት እና ከዚያ በላይ ብቻ</p>
+    </div>
+  </div>
+</footer>
+    <!-- BET SLIP BUTTON -->
+<button class="bet-slip-toggle" id="betSlipToggle">
+  🎫 <span id="betSlipCount">0</span>
+</button>
+
+<!-- BET SLIP PANEL -->
+<div class="bet-slip" id="betSlip">
+  <div class="bet-slip-header">
+    <h3>🎫 የውድድር ዝርዝር</h3>
+    <button class="bet-slip-close" id="betSlipClose">✕</button>
+  </div>
+
+  <div class="bet-slip-body" id="betSlipBody">
+    <p class="bet-slip-empty">ምንም ጨዋታ አልመረጥክም</p>
+  </div>
+
+  <div class="bet-slip-footer">
+    <div class="bet-slip-info">
+      <span>ጠቅላላ ኮፊሸንት</span>
+      <strong id="betSlipTotalOdds">0.00</strong>
+    </div>
+
+    <div class="bet-slip-input-group">
+      <label>የውድድር መጠን (ETB)</label>
+      <input type="number" id="betStake" placeholder="10" min="1">
+    </div>
+
+    <div class="bet-slip-info">
+      <span>ተገመተ ትርፍ</span>
+      <strong id="betSlipPotential">0.00 ETB</strong>
+    </div>
+
+    <button class="btn-place-bet" id="btnPlaceBet">ውድድር አስቀምጥ</button>
+  </div>
+</div>
+    <!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose">✕</button>
+
+    <h2 class="modal-title" id="modalTitle">ግባ</h2>
+    <p class="modal-subtitle" id="modalSubtitle">ወደ ኒያላ ቢት እንኳን ደህና መጣህ!</p>
+
+    <form class="modal-form" id="authForm" onsubmit="return false;">
+      <div class="form-group" id="usernameGroup">
+        <label>የተጠቃሚ ስም</label>
+        <input type="text" id="inputUsername" placeholder="ለምሳሌ: abebe123" autocomplete="off">
+      </div>
+
+      <div class="form-group" id="emailGroup" style="display:none;">
+        <label>ኢሜይል</label>
+        <input type="email" id="inputEmail" placeholder="example@email.com" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label>የይለፍ ቃል</label>
+        <input type="password" id="inputPassword" placeholder="••••••••">
+      </div>
+
+      <div class="form-group" id="confirmGroup" style="display:none;">
+        <label>የይለፍ ቃል አረጋግጥ</label>
+        <input type="password" id="inputConfirm" placeholder="••••••••">
+      </div>
+
+      <button type="submit" class="btn-modal-submit" id="modalSubmitBtn">ግባ</button>
+    </form>
+
+    <p class="modal-switch">
+      <span id="switchText">አካውንት የለህም?</span>
+      <a href="#" id="switchLink">ተመዝገብ</a>
+    </p>
+  </div>
+</div>
+    <!-- PROFILE MODAL -->
+<div class="modal-overlay" id="profileModal">
+  <div class="modal-box profile-box">
+    <button class="modal-close" id="profileClose">✕</button>
+
+    <div class="profile-header">
+      <div class="profile-avatar" id="profileAvatar">👤</div>
+      <h2 class="profile-name" id="profileName">ተጠቃሚ</h2>
+      <p class="profile-email" id="profileEmail">example@email.com</p>
+    </div>
+
+    <div class="profile-stats">
+      <div class="profile-stat">
+        <strong id="profileBalance">0.00</strong>
+        <span>ቀሪ ሂሳብ</span>
+      </div>
+      <div class="profile-stat">
+        <strong id="profileBets">0</strong>
+        <span>ውድድሮች</span>
+      </div>
+      <div class="profile-stat">
+        <strong id="profileWon">0.00</strong>
+        <span>ያሸነፍከው</span>
+      </div>
+    </div>
+
+    <button class="btn-resolve-bets" id="btnResolveBets">
+  🎲 የውድድር ውጤቶችን አረጋግጥ
+</button>
+    <button class="btn-withdraw" id="btnWithdraw">
+  💸 ገንዘብ አውጣ
+</button>
+    <h3 class="profile-section-title">📜 የውድድር ታሪክ</h3>
+    <div class="bet-history" id="betHistory">
+      <p class="no-matches">ምንም ውድድር የለም</p>
+    </div>
+
+    <button class="btn-logout" id="btnLogout">ውጣ</button>
+  </div>
+</div>
+    <!-- WITHDRAW MODAL -->
+<div class="modal-overlay" id="withdrawModal">
+  <div class="modal-box">
+    <button class="modal-close" id="withdrawClose">✕</button>
+
+    <h2 class="modal-title">💸 ገንዘብ አውጣ</h2>
+    <p class="modal-subtitle">የማውጣት መጠን እና ዘዴ ምረጥ</p>
+
+    <div class="withdraw-balance">
+      <span>ያለህ ቀሪ ሂሳብ</span>
+      <strong id="withdrawBalance">0.00 ETB</strong>
+    </div>
+
+    <div class="withdraw-methods">
+      <label class="method-option">
+        <input type="radio" name="withdrawMethod" value="telebirr" checked>
+        <div class="method-content">
+          <span class="method-icon">📱</span>
+          <div>
+            <strong>Telebirr</strong>
+            <small>የሞባይል ገንዘብ</small>
+          </div>
+        </div>
+      </label>
+
+      <label class="method-option">
+        <input type="radio" name="withdrawMethod" value="cbe">
+        <div class="method-content">
+          <span class="method-icon">🏦</span>
+          <div>
+            <strong>Commercial Bank</strong>
+            <small>የባንክ ዝውውር</small>
+          </div>
+        </div>
+      </label>
+
+      <label class="method-option">
+        <input type="radio" name="withdrawMethod" value="awash">
+        <div class="method-content">
+          <span class="method-icon">🏦</span>
+          <div>
+            <strong>Awash Bank</strong>
+            <small>የባንክ ዝውውር</small>
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>የሂሳብ ቁጥር</label>
+      <input type="text" id="withdrawAccount" placeholder="09xxxxxxxx">
+    </div>
+
+    <div class="form-group">
+      <label>የማውጣት መጠን (ETB)</label>
+      <input type="number" id="withdrawAmount" placeholder="100" min="50">
+    </div>
+
+    <p class="withdraw-note">ዝቅተኛ የማውጣት መጠን: 50 ETB</p>
+
+    <button class="btn-modal-submit" id="btnConfirmWithdraw">✅ አረጋግጥ</button>
+  </div>
+</div>
+<!-- ስክሪፕቶች -->
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+  </main>
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-badge">🔥 አዲስ ውድድር</div>
+    <h1 class="hero-title">
+      ኒያላ ቢት <br>
+      <span class="highlight">ወደ ድል ተግባ!</span>
+    </h1>
+    <p class="hero-subtitle">
+      በሺዎች የሚቆጠሩ የስፖርት ጨዋታዎች እና የካሲኖ ጨዋታዎች በአንድ ቦታ።
+      አሁን ተመዝገብና የመጀመሪያ ጉርሻህን ተቀበል።
+    </p>
+    <div class="hero-buttons">
+      <button class="btn-hero-primary">አሁን ተመዝገብ</button>
+      <button class="btn-hero-secondary">ተጨማሪ ይመልከቱ</button>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <strong>50K+</strong>
+        <span>ተጠቃሚዎች</span>
+      </div>
+      <div class="stat">
+        <strong>1000+</strong>
+        <span>ጨዋታዎች</span>
+      </div>
+      <div class="stat">
+        <strong>24/7</strong>
+        <span>ድጋፍ</span>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
