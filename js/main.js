@@ -1,5 +1,3 @@
-alert('main.js loaded!');
-
 // የኒያላ ቢት - ዋና ስክሪፕት
 // ጨዋታዎችን ማሳየት
 function renderMatches(filter = 'all') {
