@@ -838,28 +838,26 @@ function setupWithdraw() {
   }
 }
 document.addEventListener('DOMContentLoaded', () => {
-  const steps = [
-    ['renderMatches', renderMatches],
-    ['setupFilters', setupFilters],
-    ['updateBalanceUI', updateBalanceUI],
-    ['setupModal', setupModal],
-    ['setupBetSlip', setupBetSlip],
-    ['renderCasino', renderCasino],
-    ['setupCasinoFilters', setupCasinoFilters],
-    ['setupProfile', setupProfile],
-    ['loadBetHistory', loadBetHistory],
-    ['setupWithdraw', setupWithdraw]
-  ];
+  alert('Test 1: DOMContentLoaded');
 
-  let errorMsg = '';
-  steps.forEach(([name, fn]) => {
-    try {
-      fn();
-    } catch (e) {
-      errorMsg += name + ': ' + e.message + '\n';
-    }
-  });
+  try { renderMatches(); } catch(e) { alert('renderMatches: ' + e.message); }
+  try { setupFilters(); } catch(e) { alert('setupFilters: ' + e.message); }
+  try { updateBalanceUI(); } catch(e) { alert('updateBalanceUI: ' + e.message); }
+  try { setupModal(); } catch(e) { alert('setupModal: ' + e.message); }
+  try { setupBetSlip(); } catch(e) { alert('setupBetSlip: ' + e.message); }
+  try { renderCasino(); } catch(e) { alert('renderCasino: ' + e.message); }
+  try { setupCasinoFilters(); } catch(e) { alert('setupCasinoFilters: ' + e.message); }
+  try { setupProfile(); } catch(e) { alert('setupProfile: ' + e.message); }
+  try { loadBetHistory(); } catch(e) { alert('loadBetHistory: ' + e.message); }
+  try { setupWithdraw(); } catch(e) { alert('setupWithdraw: ' + e.message); }
 
+  alert('Test 2: All done');
+
+  const depositBtn = document.querySelector('.btn-deposit');
+  if (depositBtn) {
+    depositBtn.addEventListener('click', handleDeposit);
+  }
+});
   if (errorMsg) {
     alert('⚠️ ስህተቶች:\n\n' + errorMsg);
   } else {
